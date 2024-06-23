@@ -1,0 +1,7 @@
+npm create vite@latest ??? -- --template react
+D:\Aalto\Elective\"CS-E4675 - Full Stack Web Development D"\exercise\part???
+
+_____
+use
+_____
+npm create vite@latest courseinfo -- --template react

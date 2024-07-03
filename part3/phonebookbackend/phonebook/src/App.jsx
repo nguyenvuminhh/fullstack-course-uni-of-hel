@@ -92,12 +92,15 @@ const App = () => {
     const toBeAdded = {name:newName, number:newNumber}
     if (!persons.map(a => a.name).includes(toBeAdded.name)) {
       service.addContact(toBeAdded)
-             .then((res) => service.getList().then(res => setPersons(res)))
+             .then((res) => {
+                service.getList().then(res => setPersons(res))
+                notify(`Added ${toBeAdded.name}`, "annoucement")
+              })
              .catch((e) => {
                 notify(e.response.data.error, "error")
                 return
               })
-      notify(`Added ${toBeAdded.name}`, "annoucement")
+      
     } else {
       const confirm = window.confirm(`${toBeAdded.name} is already added to the phonebook. Replace old number with a new one?`)
       if (confirm) {

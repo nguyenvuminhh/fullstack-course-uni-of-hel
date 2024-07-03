@@ -48,9 +48,16 @@ app.get("/api/persons/:id", (req, res) => {
   }})
 
 app.delete("/api/persons/:id", (req, res) => {
-  const id = req.params.id
+  const id = String(req.params.id)
   contacts = contacts.filter(a => a.id !== id)
   res.status(204).end()
+})
+
+app.put("/api/persons/:id", (req, res) => {
+  const id = String(req.params.id)
+  const contact = contacts.find(a => a.id === id)
+  contact.name = req.body.name
+  res.json(contact)
 })
 
 app.post("/api/persons", (req, res) => {

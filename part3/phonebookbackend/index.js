@@ -59,14 +59,15 @@ app.post("/api/persons", (req, res) => {
     res.status(400).json({error: "Missing name or number"})
   } else if (contacts.some(a => a.name === content.name)) {
     res.status(400).json({error: "Name must be unique"})
+  } else {
+    let id = Math.floor(Math.random() * 1000000)
+    while (contacts.some(a => a.id === id)) {
+      id = Math.floor(Math.random() * 1000000)
+    }
+    content.id = String(id)
+    contacts.push(content)
+    res.json(req.body)
   }
-  let id = Math.floor(Math.random() * 1000000)
-  while (contacts.some(a => a.id === id)) {
-    id = Math.floor(Math.random() * 1000000)
-  }
-  content.id = String(id)
-  contacts.push(content)
-  res.json(req.body)
 })
 
 app.get("/api/info", (req, res) => {

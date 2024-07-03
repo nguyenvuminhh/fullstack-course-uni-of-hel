@@ -55,9 +55,9 @@ app.delete("/api/persons/:id", (req, res) => {
 
 app.put("/api/persons/:id", (req, res) => {
   const id = String(req.params.id)
-  const contact = contacts.find(a => a.id === id)
-  contact.name = req.body.name
-  res.json(contact)
+  const index = contacts.findIndex(a => a.id === id)
+  contacts[index].number = req.body.number
+  res.json(contacts[index])
 })
 
 app.post("/api/persons", (req, res) => {

@@ -98,7 +98,6 @@ const App = () => {
               })
              .catch((e) => {
                 notify(e.response.data.error, "error")
-                return
               })
       
     } else {

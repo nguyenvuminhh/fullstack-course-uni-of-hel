@@ -103,7 +103,7 @@ const App = () => {
       if (confirm) {
         service.updateContact(toBeAdded)
                .then(() => service.getList().then(res2 => setPersons(res2)))
-               .catch(() => notify(`${toBeAdded.name} is already removed from the phonebook. Reload to see the latest version.`, "error"))
+               //.catch(() => notify(`${toBeAdded.name} is already removed from the phonebook. Reload to see the latest version.`, "error"))
         }
       }
     setNewName('')

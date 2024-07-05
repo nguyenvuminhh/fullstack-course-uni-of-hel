@@ -44,7 +44,6 @@ const List = (props) => {
         {props.persons.filter(a => a.name.toLowerCase().includes(props.searchBar.toLowerCase()))
                 .map(a => <li key={a.name+'@'+a.number}>{a.name} {a.number} <button onClick={() => service.deleteContact(a.name).then(() => service.getList().then((res) => props.setPersons(res)))}>delete</button></li>)}
       </ul>
-      
     </>
   )
 }
@@ -88,24 +87,26 @@ const App = () => {
   
   //button function: add
   const addPerson = (event) => {
+    console.log("posting")
     event.preventDefault()
     const toBeAdded = {name:newName, number:newNumber}
     if (!persons.map(a => a.name).includes(toBeAdded.name)) {
+      console.log("adding")
       service.addContact(toBeAdded)
              .then((res) => {
                 service.getList().then(res => setPersons(res))
+                console.log("added")
                 notify(`Added ${toBeAdded.name}`, "annoucement")
               })
              .catch((e) => {
                 notify(e.response.data.error, "error")
               })
-      
     } else {
       const confirm = window.confirm(`${toBeAdded.name} is already added to the phonebook. Replace old number with a new one?`)
       if (confirm) {
         service.updateContact(toBeAdded)
                .then(() => service.getList().then(res2 => setPersons(res2)))
-               //.catch(() => notify(`${toBeAdded.name} is already removed from the phonebook. Reload to see the latest version.`, "error"))
+               .catch(() => notify(`${toBeAdded.name} is already removed from the phonebook. Reload to see the latest version.`, "error"))
         }
       }
     setNewName('')

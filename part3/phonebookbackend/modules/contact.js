@@ -5,7 +5,7 @@ mongoose.set('strictQuery', false)
 const url = process.env.URI
 
 mongoose.connect(url).then(() =>
-    console.log("connected")
+    console.log('connected')
 ).catch((e) => console.log(e.message))
 
 const contactSchema = new mongoose.Schema({
@@ -26,10 +26,10 @@ const contactSchema = new mongoose.Schema({
 })
 
 contactSchema.set('toJSON', {
-    transform: (document, returnedObject) => {
-        returnedObject.id = returnedObject._id.toString();
-        delete returnedObject._id;
-        delete returnedObject.__v;
+    transform: (_document, returnedObject) => {
+        returnedObject.id = returnedObject._id.toString()
+        delete returnedObject._id
+        delete returnedObject.__v
     }
 })
 

@@ -3,21 +3,21 @@ const express = require('express')
 const app = express()
 const morgan = require('morgan')
 const cors = require('cors')
-const Contact = require("./modules/contact")
+const Contact = require('./modules/contact')
 
 app.use(express.static('dist'))
 app.use(express.json())
-morgan.token('req-body', (req, res) => JSON.stringify(req.body))
+morgan.token('req-body', (req, _res) => JSON.stringify(req.body))
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms :req-body'))
 app.use(cors())
 
-app.get("/api/persons", (req, res, next) => {
+app.get('/api/persons', (_req, res, next) => {
   Contact.find({}).then(contacts => {
     res.json(contacts)
-  })
+  }).catch(e => next(e))
 })
 
-app.get("/api/persons/:id", (req, res, next) => {
+app.get('/api/persons/:id', (req, res, next) => {
   const id = String(req.params.id)
   Contact.findById(id).then((contact) => {
     if (contact) {
@@ -28,34 +28,33 @@ app.get("/api/persons/:id", (req, res, next) => {
   }).catch(e => next(e))
 })
 
-app.delete("/api/persons/:id", (req, res, next) => {
+app.delete('/api/persons/:id', (req, res, next) => {
   const id = String(req.params.id)
   Contact.findByIdAndDelete(id)
          .then(() => res.status(204).end())
          .catch(e => next(e))
 })
 
-app.put("/api/persons/:id", (req, res, next) => {
+app.put('/api/persons/:id', (req, res, next) => {
   const id = String(req.params.id)
   const newContact = req.body
-  Contact.findByIdAndUpdate(id, newContact, {new: true,  runValidators: true, context: 'query'})
+  Contact.findByIdAndUpdate(id, newContact, { new: true,  runValidators: true, context: 'query' })
          .then(result => res.json(result))
          .catch(e => next(e))
 })
 
-app.post("/api/persons", (req, res, next) => {
+app.post('/api/persons', (req, res, next) => {
   const content = req.body
-  
-  Contact.find({name: content.name}).then(result => {
+  Contact.find({ name: content.name }).then(result => {
     let unique = true
     if (result.length > 0) {
       unique = false
     }
     if (content.name === '' || content.number === '') {
-      res.status(400).json({error: "Missing name or number"})
+      res.status(400).json({ error: 'Missing name or number' })
     } else if (!unique) {
-      res.status(400).json({error: "Name must be unique"})
-    } else {
+      res.status(400).json({ error: 'Name must be unique' })
+    } else { 
       const contact = new Contact({
         name:content.name,
         number:content.number
@@ -63,27 +62,27 @@ app.post("/api/persons", (req, res, next) => {
       contact.save()
              .then(() =>res.json(contact))
              .catch(e => {
-        console.log("caught here")
+        console.log('caught here')
         next(e)
       })
     }
   })//.catch(e => next(e))
 })
 
-app.get("/api/info", (req, res) => {
+app.get('/api/info', (_req, res, next) => {
   Contact.find({}).then(contacts => {
-    res.end("The phonebook has info for " + contacts.length + " people"+ "\n\n" + new Date())
+    res.end('The phonebook has info for ' + contacts.length + ' people'+ '\n\n' + new Date())
   }).catch(e => next(e))
 })
 
-const unknownEndpoint = (request, response) => {
+const unknownEndpoint = (_res, _req) => {
   response.status(404).send({ error: 'unknown endpoint' })
 }
 app.use(unknownEndpoint)
 
 const errorHandler = (e, req, res, next) => {
   if (e.name === 'CastError') {
-    res.status(400).send({error:'Incorrect id'})
+    res.status(400).send({ error:'Incorrect id' })
   } else if (e.name === 'ValidationError') {
     res.status(400).json({ error: e.message })
     throw(e)

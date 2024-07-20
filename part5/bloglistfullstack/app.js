@@ -10,6 +10,7 @@ const testRouter = require('./control/test_route')
 const { errorHandler, unknownEndpoint, requestLogger } = require('./utils/middleware')
 const mongoUrl = config.URL
 
+app.use(express.static('dist'))
 app.use(express.json())
 mongoose.set('strictQuery', false)
 mongoose.connect(mongoUrl)
@@ -22,7 +23,6 @@ app.use('/api/blogs', blogRouter)
 app.use('/api/login', loginRouter)
 if (process.env.NODE_ENV === 'test') {
     app.use('/api/test', testRouter)
-    console.log('okok')
 }
 
 

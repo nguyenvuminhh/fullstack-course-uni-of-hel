@@ -1,0 +1,59 @@
+{
+  "anecdotes": [
+    {
+      "content": "If it hurts, do it more often",
+      "votes": 2,
+      "id": "8206"
+    },
+    {
+      "content": "Adding manpower to a late software project makes it later!",
+      "votes": 3,
+      "id": "6c25"
+    },
+    {
+      "content": "The first 90 percent of the code accounts for the first 90 percent of the development time...The remaining 10 percent of the code accounts for the other 90 percent of the development time.",
+      "votes": 3,
+      "id": "f6c7"
+    },
+    {
+      "content": "Any fool can write code that a computer can understand. Good programmers write code that humans can understand.",
+      "votes": 3,
+      "id": "5b69"
+    },
+    {
+      "id": "5608",
+      "content": "fghjk",
+      "votes": 3
+    },
+    {
+      "id": "0649",
+      "content": "v hgjkl",
+      "votes": 2
+    },
+    {
+      "id": "29d3",
+      "content": "gvhjbk",
+      "votes": 3
+    },
+    {
+      "id": "1847",
+      "content": "dfghjk",
+      "votes": 2
+    },
+    {
+      "id": "14e2",
+      "content": "dfghjk",
+      "votes": 0
+    },
+    {
+      "id": "de80",
+      "content": "hjk",
+      "votes": 2
+    },
+    {
+      "id": "c363",
+      "content": "dhjbfklasdjfbklasdfhj",
+      "votes": 1
+    }
+  ]
+}

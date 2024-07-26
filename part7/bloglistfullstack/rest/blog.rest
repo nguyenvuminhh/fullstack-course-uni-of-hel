@@ -1,0 +1,21 @@
+POST  http://localhost:3003/api/blogs/66a31f968c20444a56332ff8/comments
+content-type: application/json
+
+{"comment": "aoisfjhaksfhj"}
+
+###
+GET http://localhost:3003/api/blogs/
+###
+DELETE http://localhost:3003/api/blogs/
+
+###
+PUT http://localhost:3003/api/blogs/669136d49272b3285a5dd0b5
+content-type: application/json
+
+{
+    'title': 'tai to3',
+    'author': 'tac gia',
+    'url': 'link',
+    'likes': 120
+}
+

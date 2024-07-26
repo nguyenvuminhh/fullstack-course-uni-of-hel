@@ -1,0 +1,11 @@
+{
+  "blogs": [
+    {
+      "id": "dc07",
+      "author": "ghjk",
+      "title": "tgyhuio",
+      "url": "http://localhost:5173/?",
+      "likes": 0
+    }
+  ]
+}

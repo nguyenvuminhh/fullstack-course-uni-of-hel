@@ -1,0 +1,6 @@
+[submodule "part11/full-stack-open-pokedex"]
+	path = part11/full-stack-open-pokedex
+	url = https://github.com/nguyenvuminhh/full-stack-open-pokedex
+[submodule "part11/phonebook"]
+	path = part11/phonebook
+	url = https://github.com/nguyenvuminhh/phonebook

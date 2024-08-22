@@ -1,0 +1,22 @@
+Language: Scala
+________________
+
+Q: What are the specific tools for taking care of common steps in a CI setup (linting, testing, and building) in the ecosystem of the language Scala?
+
+A: 
+Tool for linting: Scalafmt (https://scalameta.org/scalafmt/)
+Tool for testing: ScalaTest (https://www.scalatest.org/)
+Tool for building: sbt (Scala Build Tool) (https://www.scala-sbt.org/)
+________________
+
+Q: What are the alternatives to set up the CI besides Jenkins and GitHub Actions?
+
+A:
+- GitLab CI/CD (https://docs.gitlab.com/ee/ci/)
+- Bitbucket Pipelines (https://www.atlassian.com/software/bitbucket/features/pipelines)
+- Azure Pipelines (https://azure.microsoft.com/en-us/products/devops/pipelines)
+________________
+
+Q: Would this setup be better in a self-hosted or a cloud-based environment? Why? What information would you need to make that decision?
+
+A: This depends on various factors such as project's requirements, infrastructure, and resources. Self-hosted is best suited for large, secure, and long-term projects that require full control over infrastructure, data, and scaling. Ideal for projects with sensitive data or regulatory constraints. On the other hand, cloud-based is best for projects that need quick setup, easy scaling, and reduced operational overhead. Ideal for small to medium-sized projects, dynamic workloads, and teams without dedicated infrastructure resources. Moreover, if high availability, disaster recovery, and global redundancy are essential, a cloud-based setup with built-in failover mechanisms may be more attractive.

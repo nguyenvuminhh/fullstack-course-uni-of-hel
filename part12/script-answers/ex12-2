@@ -1,0 +1,15 @@
+Script started on 2024-08-23 10:05:18+07:00 [TERM="xterm-256color" TTY="/dev/pts/4" COLUMNS="120" LINES="30"]
+[?2004h]0;nguyenvuminh@Admin: /mnt/d/Aalto/Elective/CS-E4675 - Full Stack Web Development D/misc/containers-applications/script-answers[01;32mnguyenvuminh@Admin[00m:[01;34m/mnt/d/Aalto/Elective/CS-E4675 - Full Stack Web Development D/misc/containers-applications/script-answers[00m$ [7mdocker container run -it ubuntu bash[27m[C[C[C[C[C[Cdocker container run -it ubuntu bash
+[?2004l[?2004h]0;root@5deb76a2dee9: /root@5deb76a2dee9:/# mkdir usr/src/app/index.ks  js -p[1P[1P[1P[1P[1P[1P[1P[1P[1P
+[?2004l[?2004h]0;root@5deb76a2dee9: /root@5deb76a2dee9:/# ls
+[?2004l[0m[01;36mbin[0m  [01;34mboot[0m  [01;34mdev[0m  [01;34metc[0m  [01;34mhome[0m  [01;36mlib[0m  [01;36mlib64[0m  [01;34mmedia[0m  [01;34mmnt[0m  [01;34mopt[0m  [01;34mproc[0m  [01;34mroot[0m  [01;34mrun[0m  [01;36msbin[0m  [01;34msrv[0m  [01;34msys[0m  [30;42mtmp[0m  [01;34musr[0m  [01;34mvar[0m
+[?2004h]0;root@5deb76a2dee9: /root@5deb76a2dee9:/# cd  touch usr/src/app/index.js
+[?2004l[?2004h]0;root@5deb76a2dee9: /root@5deb76a2dee9:/# [Kcd s usr/src/app
+[?2004l[?2004h]0;root@5deb76a2dee9: /usr/src/approot@5deb76a2dee9:/usr/src/app# ls
+[?2004lindex.js
+[?2004h]0;root@5deb76a2dee9: /usr/src/approot@5deb76a2dee9:/usr/src/app# exit
+[?2004lexit
+[?2004h]0;nguyenvuminh@Admin: /mnt/d/Aalto/Elective/CS-E4675 - Full Stack Web Development D/misc/containers-applications/script-answers[01;32mnguyenvuminh@Admin[00m:[01;34m/mnt/d/Aalto/Elective/CS-E4675 - Full Stack Web Development D/misc/containers-applications/script-answers[00m$ exit
+[?2004lexit
+
+Script done on 2024-08-23 10:06:47+07:00 [COMMAND_EXIT_CODE="0"]

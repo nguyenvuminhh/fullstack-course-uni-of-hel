@@ -1,0 +1,77 @@
+Script started on 2024-08-23 20:28:48+07:00 [TERM="xterm-256color" TTY="/dev/pts/5" COLUMNS="110" LINES="25"]
+[?2004h]0;nguyenvuminh@Admin: /mnt/d/Aalto/Elective/CS-E4675 - Full Stack Web Development D/misc/containers-applications/script-answers[01;32mnguyenvuminh@Admin[00m:[01;34m/mnt/d/Aalto/Elective/CS-E4675 - Full Stack Web Development D/misc/containers-applications/script-answers[00m$ docker [K[K[K[Kker container ls -a
+[?2004lCONTAINER ID   IMAGE                    COMMAND                  CREATED          STATUS                     PORTS                     NAMES
+59b9c4770fbc   mongo                    "docker-entrypoint.s…"   29 minutes ago   Up 29 minutes              0.0.0.0:3456->27017/tcp   todo-backend-mongo-1
+662d2ab71a12   backend-express-server   "docker-entrypoint.s…"   7 hours ago      Exited (137) 7 hours ago                             confident_tu
+5deb76a2dee9   ubuntu                   "bash"                   10 hours ago     Exited (0) 10 hours ago                              thirsty_einstein
+32f2fc3a87e4   hello-world              "/hello"                 23 hours ago     Exited (0) 23 hours ago                              affectionate_pike
+151f13362bfa   hello-world              "/hello"                 23 hours ago     Exited (0) 23 hours ago                              suspicious_beaver
+[?2004h]0;nguyenvuminh@Admin: /mnt/d/Aalto/Elective/CS-E4675 - Full Stack Web Development D/misc/containers-applications/script-answers[01;32mnguyenvuminh@Admin[00m:[01;34m/mnt/d/Aalto/Elective/CS-E4675 - Full Stack Web Development D/misc/containers-applications/script-answers[00m$ docker run [7m59b9c4770fbc[27m59b9c4770fbc-it[K[K[K -it bash
+[?2004lUnable to find image '59b9c4770fbc:latest' locally
+docker: Error response from daemon: pull access denied for 59b9c4770fbc, repository does not exist or may require 'docker login': denied: requested access to the resource is denied.
+See 'docker run --help'.
+[?2004h]0;nguyenvuminh@Admin: /mnt/d/Aalto/Elective/CS-E4675 - Full Stack Web Development D/misc/containers-applications/script-answers[01;32mnguyenvuminh@Admin[00m:[01;34m/mnt/d/Aalto/Elective/CS-E4675 - Full Stack Web Development D/misc/containers-applications/script-answers[00m$ dd[K[Kdocker exec [7m59b9c4770fbc[27m59b9c4770fbc bin/bash[C bin/bash- bin/bashi bin/basht bin/bash[C bin/bash[1Pbin/bash
+[?2004lOCI runtime exec failed: exec failed: unable to start container process: exec: "-it": executable file not found in $PATH: unknown
+[?2004h]0;nguyenvuminh@Admin: /mnt/d/Aalto/Elective/CS-E4675 - Full Stack Web Development D/misc/containers-applications/script-answers[01;32mnguyenvuminh@Admin[00m:[01;34m/mnt/d/Aalto/Elective/CS-E4675 - Full Stack Web Development D/misc/containers-applications/script-answers[00m$ docker exec 59b9c4770fbc -it bin/bash[1P bin/bash[1P bin/bash[1P bin/bash[1Pbin/bash[1@-[1@i[1@t[1@ 
+[?2004l[?2004hroot@59b9c4770fbc:/# mongosh --po   -host 123   localhost --port 3456 -u username1 -p password1
+[?2004l]0;mongosh mongodb://<credentials>@localhost:3456/?directConnection=true&serverSelectionTimeoutMS=2000Current Mongosh Log ID:	66c88f3ee95c9b91e35e739b
+Connecting to:		[1m[32mmongodb://<credentials>@localhost:3456/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.3.0[0m
+MongoNetworkError: connect ECONNREFUSED 127.0.0.1:3456
+[?2004hroot@59b9c4770fbc:/# mongosh --host localhost --port 3456 -u username1 -p password1[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P
+[?2004l]0;mongosh mongodb://<credentials>@127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000Current Mongosh Log ID:	66c88f95fce3c996225e739b
+Connecting to:		[1m[32mmongodb://<credentials>@127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.3.0[0m
+Using MongoDB:		7.0.12
+[1m[33mUsing Mongosh[0m:		2.3.0
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+
+To help improve our products, anonymous usage data is collected and sent to MongoDB periodically (https://www.mongodb.com/legal/privacy-policy).
+You can opt-out by running the disableTelemetry() command.
+
+[1G[0J [1G[1m[33m------[0m
+   [1m[33mThe server generated these startup warnings when booting[0m
+   2024-08-23T12:59:34.800+00:00: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem
+   2024-08-23T12:59:35.556+00:00: /sys/kernel/mm/transparent_hugepage/enabled is 'always'. We suggest setting it to 'never' in this binary version
+   2024-08-23T12:59:35.557+00:00: vm.max_map_count is too low
+[1m[33m------[0m
+
+[1G[0Jtest> [7Gshowi[1G[0Jtest> show[11G dbs
+[1madmin[0m      100.00 KiB
+[1mconfig[0m      60.00 KiB
+[1mdatabase1[0m   40.00 KiB
+[1mlocal[0m       72.00 KiB
+[1G[0Jtest> [7Guse databse[1G[0Jtest> use databs[17G[1G[0Jtest> use datab[16Gase1
+switched to db database1
+[1G[0Jdatabase1> [12Gshwo [1G[0Jdatabase1> shwo[16G[1G[0Jdatabase1> shw[15G[1G[0Jdatabase1> sh[14G[1G[0Jdatabase1> s[13G[1G[0Jdatabase1> [12Gshow collections
+[1mtodos[0m
+[1G[0Jdatabase1> [12Gdb.todos.insertOne({tes[1G[0Jdatabase1> db.todos.insertOne({te[34Gxt[33mtext[39m: [32m'[39m[32mI[39m[32mn[39m[32mc[39m[32mr[39m[32me[39m[32ma[39m[32ms[39m[32me[39m [32mt[39m[32mh[39m[32me[39m [32mn[39m[32mu[39m[32mm[39m[32mb[39m[32me[39m[32mr[39m [32mo[39m[32mf[39m [32mt[39m[32mo[39m[32mo[39m[32ml[39m[32ms[39m [32mi[39m[32mn[39m [32mm[39m[32my[39m [32mt[39m[32mo[39m[32mo[39m[32ml[39m [32mb[39m[32me[39m[32ml[39m[32mt[39m[32m'[39m, d[36mdo[39mdone: fals[33mfalse[39m})
+{
+  acknowledged: [33mtrue[39m,
+  insertedId: ObjectId([32m'66c8907efce3c996225e739c'[39m)
+}
+[1G[0Jdatabase1> [12Gdb.todos.find({})
+[
+  {
+    _id: ObjectId([32m'66c887b5b6e82883c05e739c'[39m),
+    text: [32m'Write code'[39m,
+    done: [33mtrue[39m
+  },
+  {
+    _id: ObjectId([32m'66c887b5b6e82883c05e739d'[39m),
+    text: [32m'Learn about containers'[39m,
+    done: [33mfalse[39m
+  },
+  {
+    _id: ObjectId([32m'66c8907efce3c996225e739c'[39m),
+    text: [32m'Increase the number of tools in my tool belt'[39m,
+    done: [33mfalse[39m
+  }
+]
+[1G[0Jdatabase1> [12Gexit
+[?2004hroot@59b9c4770fbc:/# exit
+[?2004lexit
+[?2004h]0;nguyenvuminh@Admin: /mnt/d/Aalto/Elective/CS-E4675 - Full Stack Web Development D/misc/containers-applications/script-answers[01;32mnguyenvuminh@Admin[00m:[01;34m/mnt/d/Aalto/Elective/CS-E4675 - Full Stack Web Development D/misc/containers-applications/script-answers[00m$ es[Kxit
+[?2004lexit
+
+Script done on 2024-08-23 20:37:25+07:00 [COMMAND_EXIT_CODE="0"]

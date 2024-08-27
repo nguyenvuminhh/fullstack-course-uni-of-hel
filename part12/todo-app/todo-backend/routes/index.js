@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const redis = require('../redis')
 
-const configs = require('../util/config')
+const configs = require('../util/config');
+const { Todo } = require('../mongo');
 
 let visits = 0
 
@@ -18,7 +19,10 @@ router.get('/', async (req, res) => {
 
 
 router.get('/statistics', async (req, res) => {
-  res.json({'added-todo': (await redis.getAsync('added-todo')), 'sd': (await redis.getAsync('test'))})
+  const oldData = (await redis.getAsync('added-todo')) || (await Todo.find({})).length
+  await redis.setAsync('added-todo', Number(oldData))
+  res.json({"addedTodo": (await redis.getAsync('added-todo'))})  
+  
 })
 
 

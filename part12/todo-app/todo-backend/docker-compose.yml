@@ -4,3 +4,12 @@ services:
     build: .
     ports:
       - 3000:3000
+    environment:
+      - REDIS_URL=redis://localhost:6379
+      - MONGO_URL=mongodb://the_username:the_password@localhost:3456/database1
+    # networks:
+    #   - todo-backend_default
+  debug-helper:
+    image: busybox
+    # networks:
+    #   - todo-backend_default

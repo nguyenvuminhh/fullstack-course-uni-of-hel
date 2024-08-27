@@ -1,10 +1,10 @@
 const redis = require('redis')
 const { promisify } = require('util')
-const { REDIS_URL } = require('../util/config') // REDIS_URL=redis://localhost:6379
+const { REDIS_URL, MONGO_URL } = require('../util/config') // REDIS_URL=redis://localhost:6379
 const { Todo } = require('../mongo')
 
-let getAsync
-let setAsync
+let getAsync = async () => {}
+let setAsync = async () => {}
 
 if (!REDIS_URL) {
   const redisIsDisabled = () => {
@@ -18,7 +18,9 @@ if (!REDIS_URL) {
     url: REDIS_URL,
     database: 0
   })
-    
+  console.log(1111111, MONGO_URL)
+  console.log(2222222, REDIS_URL)
+  // console.log(client.options)
   getAsync = promisify(client.get).bind(client)
   setAsync = promisify(client.set).bind(client)    
 }

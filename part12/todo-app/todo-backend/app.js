@@ -12,7 +12,11 @@ app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 
-app.use('/', indexRouter);
 app.use('/todos', todosRouter);
+app.use('/', indexRouter);
+app.use('/api/todos', (req, res) => {
+    res.json({qwerty:"qwerty"})
+});
+
 
 module.exports = app;

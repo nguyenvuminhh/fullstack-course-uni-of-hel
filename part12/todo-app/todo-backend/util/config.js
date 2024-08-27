@@ -3,8 +3,8 @@ require('dotenv').config()
 const MONGO_URL = process.env.MONGO_URL || undefined
 const REDIS_URL = process.env.REDIS_URL || undefined
 
-console.log(MONGO_URL)
-console.log(REDIS_URL)
+console.log(1111111, MONGO_URL)
+console.log(2222222, REDIS_URL)
 
 
 module.exports = {

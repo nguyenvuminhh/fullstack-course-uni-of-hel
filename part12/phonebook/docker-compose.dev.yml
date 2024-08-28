@@ -1,0 +1,42 @@
+services:
+  mongo:
+    image: mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=example
+      - MONGO_INITDB_DATABASE=the_database
+    volumes:
+      # - ./backend/mongo_data:/data/db
+      - ./backend/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
+    # ports:
+    #   - 3456:27017
+  backend:
+    build:
+      context: ./backend
+      dockerfile: dev.Dockerfile
+    depends_on:
+      - mongo
+    environment:
+      - MONGO_URL=mongodb://username1:password1@mongo:27017/the_database
+    volumes:
+      - ./backend:/usr/src/app
+  frontend:
+    build: 
+      context: ./frontend
+      dockerfile: dev.Dockerfile
+    environment:
+      - VITE_BACKEND_URL=http://localhost:8080
+    volumes:
+      - ./frontend:/usr/src/app
+    ports:
+      - 5173:5173
+  nginx:
+    image: nginx
+    volumes:
+      - ./nginx.dev.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - 8080:80
+    container_name: reverse-proxy
+    depends_on:
+      - frontend
+      - backend

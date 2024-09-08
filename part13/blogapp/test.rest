@@ -1,0 +1,38 @@
+GET http://localhost:3000/api/blogs
+###
+DELETE http://localhost:3000/api/blogs/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImhlbGxvQGdtYWlsLmNvbSIsImlkIjoxLCJpYXQiOjE3MjU3OTYwOTF9.NCM3ISHMtqqwjkxtb9z6lvPx2EYtK6f9ycZVvO2HlOw
+
+###
+POST http://localhost:3000/api/blogs
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImhlbGxvQGdtYWlsLmNvbSIsImlkIjoxLCJpYXQiOjE3MjU3OTY3NjZ9.nYEIWj2VqrmHM_u5nW8V9TFEV7yaZA-0f9kw-Dylh5w
+
+{
+    "author":"test", 
+    "url":"test", 
+    "title":"title"
+}
+###
+GET http://localhost:3000/api/users
+###
+PUT http://localhost:3000/api/users/hello%40gmail.com
+Content-Type: application/json
+
+{
+  "disabled": true
+}
+###
+POST http://localhost:3000/api/users
+Content-Type: application/json
+
+{
+  "name": "Xin Chao",
+  "username": "hello@gmail.com",
+  "password": "password"
+}
+
+###
+DELETE  http://localhost:3000/api/login
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImhlbGxvQGdtYWlsLmNvbSIsImlkIjoxLCJpYXQiOjE3MjU3OTY3NjZ9.nYEIWj2VqrmHM_u5nW8V9TFEV7yaZA-0f9kw-Dylh5w
